@@ -138,9 +138,9 @@ function Get-ProfileInheritance ($filePath, $profileName) {
     }
     
     if ($null -ne $inherits) {
-        return @($inherits)
+        return $inherits
     }
-    return @()
+    return $null
 }
 
 # Build full inheritance chain with circular check
@@ -161,11 +161,10 @@ $Visited = @{$EffectiveProfile = $true}
 $Current = $EffectiveProfile
 
 while ($true) {
-    $parentList = Get-ProfileInheritance $ConfigFile $Current
-    if ($parentList.Count -eq 0) {
+    $parent = Get-ProfileInheritance $ConfigFile $Current
+    if ($null -eq $parent -or $parent -eq "") {
         break
     }
-    $parent = $parentList[0]
     Write-VerboseMsg "$Current inherits from $parent"
     
     if ($Visited.ContainsKey($parent)) {
