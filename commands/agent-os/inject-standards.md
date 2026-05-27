@@ -33,16 +33,16 @@ Before injecting standards, determine which scenario we're in. Read the current 
 **Three scenarios:**
 
 1. **Conversation** — Regular chat, implementing code, answering questions
-2. **Creating a Skill** — Building a `.claude/skills/` file
+2. **Creating a Skill** — Building a `.claude/skills/` file (or `.agent/skills/` under Antigravity)
 3. **Shaping/Planning** — In plan mode, building a spec, running `/shape-spec`
 
 **Detection logic:**
 
 - If currently in plan mode OR conversation clearly mentions "spec", "plan", "shape" → **Shaping/Planning**
-- If conversation clearly mentions creating a skill, editing `.claude/skills/`, or building a reusable procedure → **Creating a Skill**
+- If conversation clearly mentions creating a skill, editing `.claude/skills/` or `.agent/skills/`, or building a reusable procedure → **Creating a Skill**
 - Otherwise → **Ask to confirm** (do not assume)
 
-**If neither skill nor plan is clearly detected**, use AskUserQuestion to confirm:
+**If neither skill nor plan is clearly detected**, ask the user (using `AskUserQuestion` / `ask_question` or in text) to confirm:
 
 ```
 I'll inject the relevant standards. How should I format them?
@@ -75,7 +75,7 @@ Look at the current conversation to understand what the user is working on:
 
 ### Step 4: Match and Suggest
 
-Match index descriptions against the context. Use AskUserQuestion to present suggestions:
+Match index descriptions against the context. Ask the user (using `AskUserQuestion` / `ask_question` or in text) to present suggestions:
 
 ```
 Based on your task, these standards may be relevant:
@@ -123,7 +123,7 @@ I've read the following standards as they are relevant to what we're working on:
 
 #### Scenario: Creating a Skill
 
-First, use AskUserQuestion to determine how to include the standards:
+First, ask the user (using `AskUserQuestion` / `ask_question` or in text) to determine how to include the standards:
 
 ```
 How should these standards be included in your skill?
@@ -176,7 +176,7 @@ These standards cover:
 
 #### Scenario: Shaping/Planning
 
-First, use AskUserQuestion to determine how to include the standards:
+First, ask the user (using `AskUserQuestion` / `ask_question` or in text) to determine how to include the standards:
 
 ```
 How should these standards be included in your plan?
@@ -229,7 +229,7 @@ These standards cover:
 
 ### Step 6: Surface Related Skills (Conversation scenario only)
 
-When in conversation scenario, check if `.claude/skills/` exists and contains related skills:
+When in conversation scenario, check if `.claude/skills/` or `.agent/skills/` exists and contains related skills:
 
 ```
 Related Skills you might want to use:

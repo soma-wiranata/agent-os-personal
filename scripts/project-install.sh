@@ -197,8 +197,10 @@ create_project_structure() {
 
     ensure_dir "$PROJECT_DIR/agent-os"
     ensure_dir "$PROJECT_DIR/agent-os/standards"
+    ensure_dir "$PROJECT_DIR/.agent/workflows"
+    ensure_dir "$PROJECT_DIR/.agent/skills"
 
-    print_success "Created agent-os/ directory structure"
+    print_success "Created agent-os/ and .agent/ directory structures"
 }
 
 install_standards() {
@@ -386,25 +388,28 @@ install_commands() {
     print_status "Installing commands..."
 
     local commands_source="$BASE_DIR/commands/agent-os"
-    local commands_dest="$PROJECT_DIR/.claude/commands/agent-os"
+    local commands_dest_claude="$PROJECT_DIR/.claude/commands/agent-os"
+    local commands_dest_antigravity="$PROJECT_DIR/.agent/workflows"
 
     if [[ ! -d "$commands_source" ]]; then
         print_warning "No commands found in base installation"
         return
     fi
 
-    ensure_dir "$commands_dest"
+    ensure_dir "$commands_dest_claude"
+    ensure_dir "$commands_dest_antigravity"
 
     local count=0
     for file in "$commands_source"/*.md; do
         if [[ -f "$file" ]]; then
-            cp "$file" "$commands_dest/"
+            cp "$file" "$commands_dest_claude/"
+            cp "$file" "$commands_dest_antigravity/"
             (( count++ )) || true
         fi
     done
 
     if [[ "$count" -gt 0 ]]; then
-        print_success "Installed $count commands to .claude/commands/agent-os/"
+        print_success "Installed $count commands to both .claude/commands/agent-os/ and .agent/workflows/"
     else
         print_warning "No command files found"
     fi
