@@ -39,9 +39,15 @@ categories:
     - slug: openapi-route-definitions
       title: "OpenAPI Route Definitions"
       source: hono
+    - slug: pagination
+      title: "Cursor-Based Pagination"
+      source: shared
     - slug: route-file-structure
       title: "Route File Structure"
       source: hono
+    - slug: rpc
+      title: "E2E Type-Safe RPC Bridge"
+      source: shared
     - slug: standardized-http-status-codes
       title: "Standardized HTTP Status Codes"
       source: hono
@@ -101,6 +107,9 @@ categories:
     - slug: separate-vite-configs
       title: "Separate Vite Configs — Never Merge"
       source: remix
+    - slug: structure
+      title: "Monorepo Workspace Structure"
+      source: shared
     - slug: svg-icon-spritesheet
       title: "SVG Icon Spritesheet — Never Import Raw SVGs"
       source: remix
@@ -142,6 +151,9 @@ categories:
     - slug: inferred-typescript-types
       title: "Inferred TypeScript Types"
       source: hono
+    - slug: migrations
+      title: "Database Migrations"
+      source: shared
     - slug: primary-keys
       title: "Primary Keys"
       source: hono
@@ -252,6 +264,9 @@ categories:
       title: "Type-Safe Link Generation via `href()`"
       source: remix
   security:
+    - slug: cors
+      title: "Cross-Origin Resource Sharing (CORS)"
+      source: hono
     - slug: csrf-header-based-middleware
       title: "CSRF — Header-Based Middleware (Preferred for New Projects)"
       source: remix
@@ -261,6 +276,9 @@ categories:
     - slug: honeypot
       title: "Honeypot — All Public Forms"
       source: remix
+    - slug: rate-limiting
+      title: "Rate Limiting"
+      source: hono
     - slug: safe-redirects
       title: "Safe Redirects — Always Wrap User-Controlled URLs"
       source: remix
@@ -292,6 +310,9 @@ categories:
       source: hono
     - slug: testing-framework-client
       title: "Testing Framework & Client"
+      source: hono
+    - slug: testing-fixtures
+      title: "Testing Fixtures and Factories"
       source: hono
   ui-components:
     - slug: client-hints

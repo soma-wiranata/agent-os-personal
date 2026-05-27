@@ -14,6 +14,13 @@ Each file is a standalone, AI-injectable standards document for one area of the 
 | [middleware.md](./middleware.md) | App factory, middleware factories, SDK singletons, logging | 6 rules |
 | [testing.md](./testing.md) | Vitest, testClient, DB isolation, OpenAPI contract tests | 4 rules |
 | [cloudflare.md](./cloudflare.md) | Workers deployment, static assets, SSR, Vite proxy, Grammy bots | 5 rules |
+| [structure.md](../profiles/remix-hono/standards/build-tooling/structure.md) | Monorepo layout, workspace configuration, and inter-package conventions | 3 rules |
+| [rpc.md](../profiles/remix-hono/standards/api/rpc.md) | End-to-end type-safe API calls from Remix loaders/actions to Hono | 3 rules |
+| [pagination.md](../profiles/remix-hono/standards/api/pagination.md) | Consistent cursor-based pagination conventions | 3 rules |
+| [migrations.md](../profiles/remix-hono/standards/database/migrations.md) | Drizzle migration strategy, file conventions, and CI/deployment | 3 rules |
+| [cors.md](../profiles/remix-hono/standards/security/cors.md) | CORS configuration for non-auth API routes | 3 rules |
+| [rate-limiting.md](../profiles/remix-hono/standards/security/rate-limiting.md) | Rate limiting configuration using Hono Rate Limiter | 3 rules |
+| [testing-fixtures.md](../profiles/remix-hono/standards/testing/testing-fixtures.md) | Test data factories, fixture management, and auth contexts | 3 rules |
 
 ## Curation Process Applied
 
