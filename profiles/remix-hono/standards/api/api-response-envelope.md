@@ -6,14 +6,14 @@ category: api
 
 All public-facing API responses must follow a consistent `success / error` envelope.
 
-```json
+```typescript
 // Success
-{ "success": true, "message": "...", "data": {} }
+{ "success": true, "data": {} }
 
 // Error
-{ "success": false, "error": "NOT_FOUND", "message": "...", "details": {} }
+{ "success": false, "error": { "message": "...", "code": "NOT_FOUND" } }
 ```
 
-- Clients always check `success` first before parsing the payload
-- Error codes must be uppercase strings (e.g. `INTERNAL_ERROR`, `VALIDATION_ERROR`, `NOT_FOUND`)
-- Use a `result.success()` / `result.error()` utility wrapper — never return raw JSON objects
+- Clients always check `success` first before parsing the payload.
+- Error codes must be uppercase strings (e.g. `INTERNAL_ERROR`, `VALIDATION_ERROR`, `NOT_FOUND`).
+- Use the `ok(c, data)` and `fail(c, message, code)` helpers from `src/lib/response.ts` — never return raw JSON objects.

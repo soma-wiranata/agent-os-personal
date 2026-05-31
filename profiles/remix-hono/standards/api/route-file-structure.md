@@ -4,7 +4,7 @@ category: api
 ---
 # Route File Structure
 
-Separate OpenAPI route definitions from business logic handlers across three files per resource.
+When using `@hono/zod-openapi`, separate OpenAPI route definitions from business logic across three files per resource. For standard Hono routes without OpenAPI, use the feature-sliced single-file pattern (see `feature-sliced-module.md`).
 
 | File | Purpose |
 |---|---|
